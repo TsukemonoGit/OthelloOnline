@@ -2,6 +2,7 @@
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using TMPro;
 
 public class MatchmakingViewVer2 : MonoBehaviourPunCallbacks
 {
@@ -9,40 +10,54 @@ public class MatchmakingViewVer2 : MonoBehaviourPunCallbacks
     private GameObject MotiTimeView;
     [SerializeField]
     private GameObject WaitView;
+    [SerializeField]
+    public  TMP_InputField usernameInputField = default;    //add
 
     private RoomList roomList = new RoomList();
-    private List<RoomButton> roomButtonList = new List<RoomButton>();
+    public RoomButton[] roomButtons;
     private CanvasGroup canvasGroup;
 
     private void Start()
     {
+        //いんぷっとふぃーるどSDD
+        usernameInputField.onValueChanged.AddListener(OnUserNameInputFieldValueChanged);
+
         canvasGroup = GetComponent<CanvasGroup>();
         //ロビーに参加するまでは、すべてのルーム参加ボタンを押せないようにする。
         canvasGroup.interactable = false;
 
         //すべてのルームボタンを初期化する。
         int roomId = 1;
-        foreach(Transform child in transform)
+        for(int i = 0; i < roomButtons.Length; i++)
         {
-            if(child.TryGetComponent<RoomButton>(out var roomButton))
-            {
-                roomButton.Init(this, roomId++);
-                roomButtonList.Add(roomButton);
-            }
+            roomButtons[i].Init(this, roomId++);
         }
+        //foreach(Transform child in transform)
+        //{
+        //    if(child.TryGetComponent<RoomButton>(out var roomButton))
+        //    {
+        //        roomButton.Init(this, roomId++);
+        //        roomButtonList.Add(roomButton);
+        //    }
+        //}
     }
+    private void OnUserNameInputFieldValueChanged(string value)
+    {
+        //userName1文字以上入力したときのみ参加ボタンを押せるようにする
+        canvasGroup.interactable = value.Length > 0;
 
+    }
     public override void OnJoinedLobby()
     {
         //ロビーに参加したら、ルーム参加ボタンを押せるようにする
-        canvasGroup.interactable = true;
+      //  canvasGroup.interactable = true;
     }
     public override void OnRoomListUpdate(List<RoomInfo> changedRoomList)
     {
         roomList.Update(changedRoomList);
 
         //すべてのルーム参加ボタンの表示を更新する
-        foreach (var roomButton in roomButtonList)
+        foreach (var roomButton in roomButtons)
         {
             if (roomList.TryGetRoomInfo(roomButton.RoomName, out var roomInfo))
             {

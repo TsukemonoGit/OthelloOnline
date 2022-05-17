@@ -31,7 +31,7 @@ public class RoomButton : MonoBehaviour
     {
         //ルーム参加処理中は、すべての参加ボタンを押せないようにする
         matchmakingView.OnJoiningRoom();
-
+        PhotonNetwork.NickName = matchmakingView.usernameInputField.text;
         //ボタンに対応したルーム名のルームに参加する（ルームが存在しなければ作成してから参加する
         var roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = MaxPlayers;
