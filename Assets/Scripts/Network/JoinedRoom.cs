@@ -14,7 +14,10 @@ public class JoinedRoom : MonoBehaviourPunCallbacks
         //PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
         PhotonNetwork.ConnectUsingSettings();
     }
-
+    public override void OnConnectedToMaster()
+    {
+        PhotonNetwork.JoinLobby();
+    }
     public override void OnJoinedRoom()
     {
         //ルームに参加したプレイヤーのアバターを生成
