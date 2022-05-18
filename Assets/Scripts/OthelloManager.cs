@@ -11,10 +11,15 @@ public class OthelloManager : MonoBehaviour
     [SerializeField]
     private TMPro.TMP_Text Textview;
     State nowState = State.BLACK;
+    
+    //置ける場所リスト
+    List<Vector2Int>[,] ReverseLists = new List<Vector2Int>[8, 8];
+
+    private bool preSkip = false;
     //セルの情報初期は空
     //public State myState { get; private set; } = State.EMPTY;
 
-  //セルの情報だけ
+    //セルの情報だけ
     int[,] cellsState = new int[8, 8]{
         {0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0},
@@ -159,9 +164,7 @@ public class OthelloManager : MonoBehaviour
         return score;
     }
   
-    private bool preSkip=false;
-    //
-    List<Vector2Int>[,] ReverseLists=new List<Vector2Int>[8,8];
+ 
     //リスト作ると同時にスキップチェックする
     public void SetReverceLists(State colorState)
     {

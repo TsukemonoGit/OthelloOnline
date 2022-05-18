@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.harumak.upalette": {
+      "version": "https://github.com/Haruma-K/uPalette.git?path=/Assets/uPalette",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "7d5d73c750ce74aadaa695ec5330e6b83fd84082"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

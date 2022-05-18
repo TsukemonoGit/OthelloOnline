@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0edd4d6dec9974f11ba4b078ca3a0e1e, type: 3}
+  m_Name: PaletteStore
+  m_EditorClassIdentifier: 
+  _colorPalette:
+    _entries:
+      _keys:
+      - ff91076d-7184-4c26-a9b6-1e5bd7596819
+      _values:
+      - _id: ff91076d-7184-4c26-a9b6-1e5bd7596819
+        _name:
+          _value: New Color
+        _values:
+          _keys:
+          - 6506d675-5700-4f52-8378-9921737cc176
+          _values:
+          - _value: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
+    _themes:
+      _keys:
+      - 6506d675-5700-4f52-8378-9921737cc176
+      _values:
+      - _id: 6506d675-5700-4f52-8378-9921737cc176
+        _name:
+          _value: Default
+    _entryOrders:
+      _ids:
+      - ff91076d-7184-4c26-a9b6-1e5bd7596819
+    _themeOrders:
+      _ids:
+      - 6506d675-5700-4f52-8378-9921737cc176
+    _activeThemeId: 6506d675-5700-4f52-8378-9921737cc176
+  _gradientPalette:
+    _entries:
+      _keys: []
+      _values: []
+    _themes:
+      _keys:
+      - 1ff9e5f2-2a8b-416a-9322-ea1cf0886249
+      _values:
+      - _id: 1ff9e5f2-2a8b-416a-9322-ea1cf0886249
+        _name:
+          _value: Default
+    _entryOrders:
+      _ids: []
+    _themeOrders:
+      _ids:
+      - 1ff9e5f2-2a8b-416a-9322-ea1cf0886249
+    _activeThemeId: 1ff9e5f2-2a8b-416a-9322-ea1cf0886249
+  _characterStylePalette:
+    _entries:
+      _keys: []
+      _values: []
+    _themes:
+      _keys:
+      - 83cd43de-552f-48e4-8e09-969efb093179
+      _values:
+      - _id: 83cd43de-552f-48e4-8e09-969efb093179
+        _name:
+          _value: Default
+    _entryOrders:
+      _ids: []
+    _themeOrders:
+      _ids:
+      - 83cd43de-552f-48e4-8e09-969efb093179
+    _activeThemeId: 83cd43de-552f-48e4-8e09-969efb093179
+  _characterStyleTMPPalette:
+    _entries:
+      _keys: []
+      _values: []
+    _themes:
+      _keys:
+      - 13fd4189-f368-436a-9bad-ca54afcd0eb4
+      _values:
+      - _id: 13fd4189-f368-436a-9bad-ca54afcd0eb4
+        _name:
+          _value: Default
+    _entryOrders:
+      _ids: []
+    _themeOrders:
+      _ids:
+      - 13fd4189-f368-436a-9bad-ca54afcd0eb4
+    _activeThemeId: 13fd4189-f368-436a-9bad-ca54afcd0eb4
+  _missingEntryErrorLevel: 1
