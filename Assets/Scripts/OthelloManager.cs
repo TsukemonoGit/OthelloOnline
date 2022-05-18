@@ -15,6 +15,9 @@ public class OthelloManager : MonoBehaviour
     //置ける場所リスト
     List<Vector2Int>[,] ReverseLists = new List<Vector2Int>[8, 8];
 
+    //おける座標のリスト
+    List<Vector2Int> ReversablePositions = new List<Vector2Int>();
+    
     private bool preSkip = false;
     //セルの情報初期は空
     //public State myState { get; private set; } = State.EMPTY;
@@ -34,7 +37,10 @@ public class OthelloManager : MonoBehaviour
     //セルたちのこんとろーらー
   public   GameObject[,] CellsObject = new GameObject[8, 8] ;
 
-   
+    private void Start()
+    {
+        SetReverceLists(nowState);
+    }
 
     //セルの情報セット
     public void SetState(Vector2Int position , State state)
@@ -124,10 +130,11 @@ public class OthelloManager : MonoBehaviour
     {
         this.testPosition = position;
         this.testState = state;
-        var test = ReverseList(testState, testPosition);
-        // for(int i = 0; i< test.Count; i  ++ )
-      //  if (test.Count > 0)
-    //    {
+       // var test = ReverseList(testState, testPosition);↓とおなじいみのはず
+        var test = ReverseLists[testPosition.x, testPosition.y];
+            // for(int i = 0; i< test.Count; i  ++ )
+            //  if (test.Count > 0)
+            //    {
             //Debug.Log(test[0]);
             CellsObject[testPosition.x, testPosition.y].GetComponent<DiskManager>().SetDisk(testState);
             ChangeBoard(testState, testPosition);
@@ -166,30 +173,41 @@ public class OthelloManager : MonoBehaviour
   
  
     //リスト作ると同時にスキップチェックする
+    //ReversablePositionsにもいれる
     public void SetReverceLists(State colorState)
     {
         bool nowSkip = true;
         ReverseLists = new List<Vector2Int>[8, 8];
+        ReversablePositions = new List<Vector2Int>();
         for (int i = 0; i< 8; i ++)
         {
             for(int j = 0; j < 8; j++)
             {
                 ReverseLists[i, j] = ReverseList(colorState, new Vector2Int(i, j));
-                if (ReverseLists[i, j].Count > 0) { nowSkip = false; }
+                
+                if (ReverseLists[i, j].Count > 0) 
+                { 
+                    //おける
+                    nowSkip = false;
+                    ReversablePositions.Add(new Vector2Int(i, j));
+                }
+            
 
             }
         }
-        //おわり
+  
         if (nowSkip && preSkip　)
-        {
+        {      
+            //おわり
             StartCoroutine(GoEnding());
        
            // EndGame();
          
           
-        }//スキップ一回目
+        }
         else if (nowSkip && !preSkip)
         {
+            //スキップ一回目
             preSkip = true;
             //スキップ？
             ChangeState(((int)nowState == 1) ? State.WHITE : State.BLACK);
@@ -199,7 +217,7 @@ public class OthelloManager : MonoBehaviour
         {
             preSkip = false;
         }
-        //SkipCheck
+       
     }
 
     IEnumerator GoEnding()
@@ -242,9 +260,28 @@ public class OthelloManager : MonoBehaviour
 bool canReverse =        ReverseLists[position.x, position.y].Count > 0;
         return canReverse;
     }
-    private void Start()
+
+    public void AutoReverse()
     {
-        SetReverceLists(nowState);
+        if (ReversablePositions.Count == 0) { Debug.Log("おくとこないよ"); return; }
+        
+        int RandomIndex = Random.Range(0, ReversablePositions.Count);
+        Vector2Int ReversePosition = ReversablePositions[RandomIndex];
+        Reverse(nowState, ReversePosition);
     }
 
+
+    public State GetNowState()
+    {
+        return nowState;
+    }
+
+    void OnGUI()
+    {
+        if(GUI.Button(new Rect(10, 10, 150, 100), "Auto"))
+        {
+            AutoReverse();
+        }
+    }
+  
 }

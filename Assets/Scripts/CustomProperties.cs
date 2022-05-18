@@ -12,7 +12,10 @@ public  class CustomProperties:MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI WHITE;
 
-
+    [SerializeField]
+    private CountDown countDownB;
+    [SerializeField]
+    private CountDown countDownW;
 
     private int MotiTime;
     public void SetMotiTime( int motiTime)
@@ -21,6 +24,10 @@ public  class CustomProperties:MonoBehaviour
       
         BLACK.text = motiTime.ToString();
         WHITE.text = motiTime.ToString();
+        //このタイミングでカウントダウンスタート
+        countDownW.SetMotiTime(motiTime);
+        countDownB.SetMotiTime(motiTime);
+        countDownB.StartTimer();
     }
     public int GetMotiTime()
     {

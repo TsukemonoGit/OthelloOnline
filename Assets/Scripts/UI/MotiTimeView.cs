@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class MotiTimeView : MonoBehaviour
 {
-  //  [SerializeField]
-   // private CustomProperties properties;
+    //  [SerializeField]
+    // private CustomProperties properties;
 
     [SerializeField]
     private Button motiTimeDecidedButton = default;
 
-    private int motiTime=5;
+    private int motiTime = 5;
 
     private void Start()
     {
@@ -21,6 +21,7 @@ public class MotiTimeView : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<SetMotiTime>().SetTime(motiTime);
         gameObject.SetActive(false);
+      
     }
 
     public void SetMotiTime(int motiTime)

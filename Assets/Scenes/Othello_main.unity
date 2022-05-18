@@ -606,6 +606,7 @@ GameObject:
   - component: {fileID: 165280087}
   - component: {fileID: 165280086}
   - component: {fileID: 165280088}
+  - component: {fileID: 165280089}
   m_Layer: 5
   m_Name: BLACK
   m_TagString: UserNameBLACK
@@ -687,6 +688,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userName_Text: {fileID: 1742383111}
   timeLimit_Text: {fileID: 2023988675}
+--- !u!114 &165280089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165280084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3d34f8b7c09c34691eab1c350f2259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 646032555}
+  gameRoomTimeDisplay: {fileID: 1289995885}
+  myColor: 1
+  timeLimitText: {fileID: 2023988675}
 --- !u!1 &188118266
 GameObject:
   m_ObjectHideFlags: 0
@@ -4841,7 +4858,6 @@ GameObject:
   - component: {fileID: 877423314}
   - component: {fileID: 877423315}
   - component: {fileID: 877423316}
-  - component: {fileID: 877423317}
   m_Layer: 0
   m_Name: SampleScene
   m_TagString: SampleScene
@@ -4926,19 +4942,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BLACK: {fileID: 2023988675}
   WHITE: {fileID: 676374705}
---- !u!114 &877423317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877423310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a1b3bda60e9e804f87fd1e5d20a885a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TurnDuration: 20
+  countDownB: {fileID: 165280089}
+  countDownW: {fileID: 1434008668}
 --- !u!1 &893154723
 GameObject:
   m_ObjectHideFlags: 0
@@ -7163,6 +7168,7 @@ GameObject:
   - component: {fileID: 1434008666}
   - component: {fileID: 1434008665}
   - component: {fileID: 1434008667}
+  - component: {fileID: 1434008668}
   m_Layer: 5
   m_Name: WHITE
   m_TagString: UserNameWHITE
@@ -7244,6 +7250,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userName_Text: {fileID: 1534029343}
   timeLimit_Text: {fileID: 676374705}
+--- !u!114 &1434008668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434008662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3d34f8b7c09c34691eab1c350f2259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 646032555}
+  gameRoomTimeDisplay: {fileID: 1289995885}
+  myColor: 2
+  timeLimitText: {fileID: 676374705}
 --- !u!1 &1489158140
 GameObject:
   m_ObjectHideFlags: 0
